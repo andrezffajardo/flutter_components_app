@@ -7,6 +7,7 @@ class AppRoutes {
     'home': (context) => const HomeScreen(),
     'listview1': (context) => const ListView1Screen(),
     'listview2': (context) => const ListView2Screen(),
+    'alert': (context) => const AlertScreen(),
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
