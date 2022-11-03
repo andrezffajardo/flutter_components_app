@@ -10,7 +10,6 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Components'),
-          centerTitle: true,
         ),
         body: ListView.separated(
             itemBuilder: (context, index) => ListTile(
