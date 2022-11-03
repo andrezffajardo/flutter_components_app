@@ -5,7 +5,7 @@ import 'package:flutter_components_app/screens/screens.dart';
 class AppRoutes {
   static const initialRoute = 'home';
 
-  static final menuOptions = <MenuOption>{
+  static final menuOptions = <MenuOption>[
     MenuOption(
       route: 'home',
       name: 'Home Screen',
@@ -30,14 +30,22 @@ class AppRoutes {
       screen: const AlertScreen(),
       icon: Icons.report_problem_outlined,
     ),
-  };
+  ];
 
-  static Map<String, Widget Function(BuildContext)> routes = {
-    'home': (context) => const HomeScreen(),
-    'listview1': (context) => const ListView1Screen(),
-    'listview2': (context) => const ListView2Screen(),
-    'alert': (context) => const AlertScreen(),
-  };
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+    Map<String, Widget Function(BuildContext)> appRoutes = {};
+    for (final option in menuOptions) {
+      appRoutes.addAll({option.route: (BuildContext context) => option.screen});
+    }
+    return appRoutes;
+  }
+
+  // static Map<String, Widget Function(BuildContext)> routes = {
+  //   'home': (context) => const HomeScreen(),
+  //   'listview1': (context) => const ListView1Screen(),
+  //   'listview2': (context) => const ListView2Screen(),
+  //   'alert': (context) => const AlertScreen(),
+  // };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(
