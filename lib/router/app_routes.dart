@@ -30,6 +30,12 @@ class AppRoutes {
       screen: const AlertScreen(),
       icon: Icons.report_problem_outlined,
     ),
+    MenuOption(
+      route: 'cards',
+      name: 'Card Screen',
+      screen: const CardScreen(),
+      icon: Icons.report_problem_outlined,
+    ),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
