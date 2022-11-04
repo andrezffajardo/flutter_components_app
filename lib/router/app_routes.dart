@@ -34,7 +34,7 @@ class AppRoutes {
       route: 'cards',
       name: 'Card Screen',
       screen: const CardScreen(),
-      icon: Icons.report_problem_outlined,
+      icon: Icons.credit_card_outlined,
     ),
   ];
 
