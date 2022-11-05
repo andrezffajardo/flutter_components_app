@@ -7,12 +7,12 @@ class AvatarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Stan Lee'),
+        title: const Text('AC/DC'),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 5),
             child: CircleAvatar(
-              child: const Text('SL'),
+              child: const Text('AD'),
               backgroundColor: Colors.indigo[800],
             ),
           ),
@@ -22,7 +22,7 @@ class AvatarScreen extends StatelessWidget {
         child: CircleAvatar(
           maxRadius: 120,
           backgroundImage:
-              NetworkImage('https://i.blogs.es/85aa44/stan-lee/840_560.jpg'),
+              NetworkImage('https://wallpapercave.com/wp/8SD9Ite.jpg'),
         ),
       ),
     );
