@@ -21,6 +21,24 @@ class InputsScreen extends StatelessWidget {
                 onChanged: (value) {
                   print('value: $value');
                 },
+                validator: (value) {
+                  if (value == null) return 'Field Required';
+                  return value.length < 4 ? '4 letters min' : null;
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: 'User Name',
+                  labelText: 'Name',
+                  helperText: 'Only Letters',
+                  suffixIcon: Icon(Icons.person_add),
+                  icon: Icon(Icons.assignment_ind),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
