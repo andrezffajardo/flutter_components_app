@@ -1,12 +1,47 @@
+import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_components_app/theme/app_theme.dart';
 
 class AlertScreen extends StatelessWidget {
   const AlertScreen({super.key});
 
-  void displayDialog(BuildContext context) {
+  void displayDialogIOS(BuildContext context) {
+    showCupertinoDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return CupertinoAlertDialog(
+          title: const Text('Title'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              Text('This is the alert content'),
+              SizedBox(
+                height: 10,
+              ),
+              FlutterLogo(
+                size: 50,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel', style: TextStyle(color: Colors.red)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void displayDialogAndroid(BuildContext context) {
     showDialog(
-      barrierDismissible: true,
+      barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(
         elevation: 5,
@@ -31,6 +66,10 @@ class AlertScreen extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             child: const Text('Cancel'),
           ),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
         ],
       ),
     );
@@ -41,7 +80,10 @@ class AlertScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          onPressed: () => displayDialog(context),
+          onPressed: () => Platform.isAndroid
+              ? displayDialogAndroid(context)
+              : displayDialogIOS(context),
+          //onPressed: () => displayDialogAndroid(context),
           child: const Text('Alert Button'),
         ),
       ),
