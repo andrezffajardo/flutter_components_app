@@ -19,6 +19,29 @@ class InputsScreen extends StatelessWidget {
                 labelText: 'Name',
                 hintText: 'User Name',
               ),
+              SizedBox(
+                height: 30,
+              ),
+              CustomInputField(
+                labelText: 'Last Name',
+                hintText: 'User Last Name',
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              CustomInputField(
+                labelText: 'Email',
+                hintText: 'User Email',
+                keyboardType: TextInputType.emailAddress,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              CustomInputField(
+                labelText: 'Password',
+                hintText: 'User Password',
+                obscureText: true,
+              ),
             ],
           ),
         ),
