@@ -10,6 +10,7 @@ class SliderScreen extends StatefulWidget {
 
 class _SliderScreenState extends State<SliderScreen> {
   double _sliderValue = 100;
+  bool _sliderEnabled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +21,40 @@ class _SliderScreenState extends State<SliderScreen> {
         body: Column(
           children: [
             Slider(
-              min: 50,
-              max: 400,
-              activeColor: AppTheme.primary,
-              value: _sliderValue,
-              onChanged: (value) {
-                _sliderValue = value;
-                setState(() {});
-              },
-            ),
+                min: 50,
+                max: 400,
+                activeColor: AppTheme.primary,
+                value: _sliderValue,
+                onChanged: _sliderEnabled
+                    ? (value) {
+                        _sliderValue = value;
+                        setState(() {});
+                      }
+                    : null),
+            // Checkbox(
+            //     value: _sliderEnabled,
+            //     onChanged: (value) {
+            //       _sliderEnabled = value ?? true;
+            //       setState(() {});
+            //     }),
+            CheckboxListTile(
+                activeColor: AppTheme.primary,
+                title: const Text('Enable Slider'),
+                value: _sliderEnabled,
+                onChanged: (value) {
+                  _sliderEnabled = value ?? true;
+                  setState(() {});
+                }),
+            SwitchListTile(
+                activeColor: AppTheme.primary,
+                title: const Text('Enable Slider'),
+                value: _sliderEnabled,
+                onChanged: (value) {
+                  _sliderEnabled = value;
+                  setState(() {});
+                }),
+            const AboutListTile(),
+
             Expanded(
               child: SingleChildScrollView(
                 child: Image(
