@@ -17,30 +17,32 @@ class _SliderScreenState extends State<SliderScreen> {
         appBar: AppBar(
           title: const Text('Sliders & Checks'),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Slider(
-                min: 50,
-                max: 400,
-                activeColor: AppTheme.primary,
-                value: _sliderValue,
-                onChanged: (value) {
-                  _sliderValue = value;
-                  setState(() {});
-                },
+        body: Column(
+          children: [
+            Slider(
+              min: 50,
+              max: 400,
+              activeColor: AppTheme.primary,
+              value: _sliderValue,
+              onChanged: (value) {
+                _sliderValue = value;
+                setState(() {});
+              },
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Image(
+                  image: NetworkImage(
+                      'https://www.megaidea.net/wp-content/uploads/2021/09/Hulk-01.png'),
+                  fit: BoxFit.contain,
+                  width: _sliderValue,
+                ),
               ),
-              Image(
-                image: NetworkImage(
-                    'https://www.megaidea.net/wp-content/uploads/2021/09/Hulk-01.png'),
-                fit: BoxFit.contain,
-                width: _sliderValue,
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+          ],
         ));
   }
 }
