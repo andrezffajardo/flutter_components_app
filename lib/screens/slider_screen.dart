@@ -32,7 +32,7 @@ class _SliderScreenState extends State<SliderScreen> {
             Expanded(
               child: SingleChildScrollView(
                 child: Image(
-                  image: NetworkImage(
+                  image: const NetworkImage(
                       'https://www.megaidea.net/wp-content/uploads/2021/09/Hulk-01.png'),
                   fit: BoxFit.contain,
                   width: _sliderValue,
