@@ -46,13 +46,15 @@ class _SliderScreenState extends State<SliderScreen> {
                   setState(() {});
                 }),
             SwitchListTile(
-                activeColor: AppTheme.primary,
-                title: const Text('Enable Slider'),
-                value: _sliderEnabled,
-                onChanged: (value) {
+              activeColor: AppTheme.primary,
+              title: const Text('Enable Slider'),
+              value: _sliderEnabled,
+              onChanged: (value) => setState(
+                () {
                   _sliderEnabled = value;
-                  setState(() {});
-                }),
+                },
+              ),
+            ),
             const AboutListTile(),
 
             Expanded(
